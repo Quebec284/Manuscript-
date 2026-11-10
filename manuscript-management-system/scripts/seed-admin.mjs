@@ -1,7 +1,4 @@
-// Creates (or updates) the administrator account from environment variables.
-//   npm run seed:admin
-// Reads .env if present; in CI the same names come from repository secrets.
-// Re-running it with a new ADMIN_PASSWORD resets the administrator's password.
+
 import { createClient } from "@supabase/supabase-js";
 import { existsSync, readFileSync } from "node:fs";
 
