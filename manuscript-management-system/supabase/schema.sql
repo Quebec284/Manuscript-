@@ -1,12 +1,4 @@
--- =====================================================================
--- Manuscript Management System – Supabase schema
--- Run this whole file once in Supabase → SQL Editor. Safe to re-run.
--- Security model: clients can READ only what row-level security allows and
--- can WRITE only through the SECURITY DEFINER functions below (no direct
--- insert/update/delete on tables), so roles and workflow cannot be bypassed.
--- =====================================================================
 
--- ---------- tables ----------
 create table if not exists public.profiles (
   id             uuid primary key references auth.users(id) on delete cascade,
   full_name      text not null,
@@ -78,9 +70,6 @@ create table if not exists public.audit_log (
   created_at timestamptz not null default now()
 );
 
--- ---------- upgrade older databases (two-step approval) ----------
--- Older versions had a single editor approval ('Approved'). Those manuscripts now wait for the
--- administrator's final approval. Runs once; re-running this file is safe.
 alter table public.reviews add column if not exists reviewer_role text not null default 'Editor';
 do $$
 declare legacy boolean; n int;
