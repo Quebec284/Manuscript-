@@ -1,5 +1,4 @@
-// All runtime settings come from environment variables (see .env.example).
-// Vite replaces import.meta.env.VITE_* at build time; only VITE_* values reach the browser.
+
 const e = import.meta.env;
 export const CONFIG = {
   appName: e.VITE_APP_NAME || "Manuscript Management System",
