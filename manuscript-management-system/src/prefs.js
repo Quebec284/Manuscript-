@@ -1,7 +1,4 @@
-// Consent record + appearance preferences.
-// The "Session cookies" choice decides where the sign-in session and preferences live:
-//   accepted (or no choice yet) → localStorage  (stay signed in after closing the browser)
-//   rejected                    → sessionStorage (signed out when the tab/browser is closed)
+
 const CK = "mms_consent";
 const safe = f => { try { return f(); } catch (e) { return null; } };
 
